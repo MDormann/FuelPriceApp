@@ -1,32 +1,44 @@
 ﻿@using FuelPrice.Api.Models
+@inherits LayoutComponentBase
 
+<div class="card2">
+  <div class="header">
+    <div class="title">
+      <h2>@PetrolStation.Name</h2>
+      <p>@PetrolStation.Brand</p>
+    </div>
+  </div>
 
-<div style="background: gray; width: 300px">
-	<div style="display: flex">
-		<div style="flex:auto">
-			@PetrolStation.Name
-		</div>
-				
-		<div style="width: 20px; height: 20px;background: @(PetrolStation.IsOpen ? "green" : "red"); border-radius:50%"></div>
-	</div>
+  <div class="card-details">
+    <div class="anschrift">
+      <p>@PetrolStation.Street @PetrolStation.HouseNumber</p>
+      <p>@PetrolStation.PostCode @PetrolStation.Place</p>
+    </div>
 
-	<div style="display: flex">
-		<div style="flex:auto">
-			@PetrolStation.Street <br />
-			@PetrolStation.PostCode @PetrolStation.Place
-		</div>
-		<div>
-			Diesel @PetrolStation.Diesel <br />
-			E5 @PetrolStation.E5 <br />
-			E10	@PetrolStation.E10 <br />
-		</div>	
-	</div>
+    <div class="preise">
+      <div class="price-item">
+        <p class="item-title">Diesel</p>
+        <p class="item-price">@PetrolStation.Diesel €</p>
+      </div>
+      <div class="price-item">
+        <p class="item-title">Super (e5)</p>
+        <p class="item-price">@PetrolStation.E5 €</p>
+      </div>
+      <div class="price-item">
+        <p class="item-title">Super (e10)</p>
+        <p class="item-price">@PetrolStation.E10 €</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-select" type="button" color="grey" outline="true">Auswählen</button>
+
 </div>
-
 
 
 @code {
 	[Parameter]
 	public PetrolStation? PetrolStation { get; set; }
-
+	[Parameter]
+	public bool IsOpen { get; set; }
 }

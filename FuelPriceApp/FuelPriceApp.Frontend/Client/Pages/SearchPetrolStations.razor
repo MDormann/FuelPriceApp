@@ -9,7 +9,7 @@
 
 @foreach (var petrolStation in PetrolStations)
 {
-	<PetrolStationGrid PetrolStation="petrolStation"></PetrolStationGrid>
+	<PetrolStationGrid PetrolStation="petrolStation" IsOpen="true"></PetrolStationGrid>
 }
 
 
@@ -21,12 +21,13 @@
     [Parameter]
     public string? SearchText { get; set; }
 
-    public List<PetrolStation> PetrolStations { get; set; }
+    public List<PetrolStation> PetrolStations { get; set; } = new List<PetrolStation>();
 
 
 
     protected override async Task OnInitializedAsync()
     {
+
         var fuelPriceApi = new FuelPrice.Api.FuelPriceApiClient("00000000-0000-0000-0000-000000000002");
 
         PetrolStations = await fuelPriceApi.GetPetrolStationsByRadiusAsync(50.908663313159266, 8.007591612121427, 5);
