@@ -1,0 +1,22 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+
+<PageTitle>Index</PageTitle>
+
+<h1>Find best PetrolPrices in Town</h1>
+
+<h2>A FOM Proof-of-Concept</h2>
+
+<input id="searchtextfield" @bind-value="SearchText"></input>
+<button @onclick="SearchButtonClicked">Search</button>
+
+
+
+@code {
+	public string SearchText { get; set; }
+
+	private void SearchButtonClicked(){
+		NavigationManager.NavigateTo($"/searchpetrolstations/{SearchText}", false);
+
+	}
+}

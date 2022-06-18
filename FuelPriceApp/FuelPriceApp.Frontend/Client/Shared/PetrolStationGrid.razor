@@ -1,0 +1,32 @@
+﻿@using FuelPrice.Api.Models
+
+
+<div style="background: gray; width: 300px">
+	<div style="display: flex">
+		<div style="flex:auto">
+			@PetrolStation.Name
+		</div>
+				
+		<div style="width: 20px; height: 20px;background: @(PetrolStation.IsOpen ? "green" : "red"); border-radius:50%"></div>
+	</div>
+
+	<div style="display: flex">
+		<div style="flex:auto">
+			@PetrolStation.Street <br />
+			@PetrolStation.PostCode @PetrolStation.Place
+		</div>
+		<div>
+			Diesel @PetrolStation.Diesel <br />
+			E5 @PetrolStation.E5 <br />
+			E10	@PetrolStation.E10 <br />
+		</div>	
+	</div>
+</div>
+
+
+
+@code {
+	[Parameter]
+	public PetrolStation? PetrolStation { get; set; }
+
+}

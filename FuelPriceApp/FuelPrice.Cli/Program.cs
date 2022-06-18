@@ -6,4 +6,3 @@ foreach (var petrolStation in result)
 {
     Console.WriteLine($"Tankstelle: {petrolStation.Name}, Benzinpreis: {petrolStation.E5}");
 }
-   
